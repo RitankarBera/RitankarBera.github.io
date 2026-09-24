@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio — Business Analyst, Finance & Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1A2B;
+    --ink2:#16273E;
+    --paper:#FBF8F2;
+    --paper2:#F2ECDE;
+    --brass:#B08D57;
+    --brass-light:#D9BE8E;
+    --teal:#4F86A6;
+    --text-dark:#16202E;
+    --text-mute:#5B6472;
+    --text-light:#F3EEE3;
+    --rule-dark:#26374F;
+    --rule-light:#E4DDCB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--text-dark);
+    background:var(--paper);
+    line-height:1.65;
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;letter-spacing:-0.01em;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px;}
+
+  .hero{
+    background:var(--ink);
+    color:var(--text-light);
+    padding-top:calc(80px + env(safe-area-inset-top,0px));
+    padding-bottom:64px;
+    background-image:repeating-linear-gradient(to bottom, transparent 0 38px, rgba(243,238,227,0.045) 38px 39px);
+  }
+  .hero-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;}
+  .hero-meta{font-size:0.92rem;color:var(--brass-light);}
+  .hero-meta .item{display:inline-block;padding-right:18px;margin-right:18px;border-right:1px solid var(--rule-dark);}
+  .hero-meta .item:last-child{border-right:none;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:end;
+    margin-top:40px;
+  }
+  @media (max-width:760px){.hero-grid{grid-template-columns:1fr;}}
+  h1.name{font-size:clamp(2.4rem,6vw,3.8rem);font-weight:600;line-height:1.03;}
+  .role{color:var(--brass-light);font-size:1.2rem;margin-top:14px;font-weight:500;}
+  .lede{margin-top:22px;max-width:56ch;color:#C9C2B2;font-size:1.04rem;}
+
+  .chart-card{
+    background:rgba(243,238,227,0.05);
+    border:1px solid var(--rule-dark);
+    padding:22px 22px 18px;
+  }
+  .chart-card .ct{font-size:0.88rem;color:var(--brass-light);margin-bottom:16px;}
+  .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:11px;font-size:0.82rem;}
+  .bar-row:last-child{margin-bottom:0;}
+  .bar-label{width:100px;flex-shrink:0;color:#C9C2B2;}
+  .bar-track{flex:1;background:rgba(243,238,227,0.08);height:8px;position:relative;}
+  .bar-fill{background:linear-gradient(90deg,var(--brass),var(--brass-light));height:100%;}
+  .bar-val{width:34px;text-align:right;color:var(--brass-light);font-weight:600;}
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero-grid{animation:rise .6s ease-out;}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  }
+
+  .impact{
+    background:var(--paper2);
+    border-bottom:1px solid var(--rule-light);
+    padding:36px 0;
+  }
+  .impact-row{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  }
+  @media (max-width:640px){.impact-row{grid-template-columns:repeat(2,1fr);row-gap:24px;}}
+  .impact-cell{border-left:1px solid var(--rule-light);padding:0 22px;}
+  .impact-cell:first-child{border-left:none;}
+  .impact-cell .num{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;color:var(--ink2);}
+  .impact-cell .lbl{font-size:0.82rem;color:var(--text-mute);margin-top:4px;}
+
+  section{padding:60px 0;}
+  section + section{border-top:1px solid var(--rule-light);}
+  .section-title{font-size:1.55rem;font-weight:600;margin-bottom:8px;}
+  .section-rule{width:44px;height:2px;background:var(--brass);margin-bottom:22px;}
+
+  .timeline{position:relative;padding-left:26px;}
+  .timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--rule-light);}
+  .tl-item{position:relative;margin-bottom:38px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-26px;top:6px;width:11px;height:11px;
+    border-radius:50%;background:var(--paper);border:2px solid var(--brass);
+  }
+  .tl-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 18px;align-items:baseline;}
+  .tl-head h3{font-size:1.12rem;font-weight:600;}
+  .tl-head .co{color:var(--teal);font-weight:500;font-family:'Inter',sans-serif;font-size:1.02rem;}
+  .tl-meta{color:var(--text-mute);font-size:0.88rem;margin-top:2px;}
+  ul.bullets{margin-top:13px;padding-left:19px;}
+  ul.bullets li{margin-bottom:8px;}
+  ul.bullets li::marker{color:var(--brass);}
+
+  .project-card{
+    background:var(--ink);
+    color:var(--text-light);
+    padding:34px 32px;
+  }
+  .project-card .tag{color:var(--brass-light);font-size:0.88rem;margin-bottom:6px;}
+  .project-card h3{font-size:1.35rem;margin-bottom:18px;color:var(--text-light);}
+  .project-card ul.bullets li{color:#D9D3C3;}
+  .project-card ul.bullets li::marker{color:var(--brass-light);}
+
+  .flow{display:flex;align-items:center;gap:6px;margin:22px 0 26px;flex-wrap:wrap;}
+  .flow-step{
+    font-size:0.8rem;padding:7px 13px;background:rgba(243,238,227,0.08);
+    border:1px solid var(--rule-dark);color:var(--brass-light);
+  }
+  .flow-arrow{color:var(--rule-dark);font-size:0.9rem;}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  @media (max-width:640px){.grid-2{grid-template-columns:1fr;}}
+  .skill-group{margin-bottom:22px;}
+  .skill-group h4{font-size:0.92rem;color:var(--teal);margin-bottom:10px;font-weight:600;}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .skill-tags span{
+    font-size:0.84rem;background:var(--paper2);border:1px solid var(--rule-light);
+    padding:6px 13px;color:var(--text-dark);
+  }
+
+  .edu-item{margin-bottom:20px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-item h3{font-size:1.05rem;font-weight:600;}
+  .edu-item .school{color:var(--teal);font-size:0.92rem;margin-top:2px;}
+  .edu-item .yrs{color:var(--text-mute);font-size:0.86rem;margin-top:2px;}
+
+  footer{background:var(--ink);color:var(--text-light);padding:56px 0 calc(56px + env(safe-area-inset-bottom,0px));}
+  footer h2{color:var(--text-light);}
+  .contact-row{display:flex;gap:0;flex-wrap:wrap;margin-top:22px;}
+  .contact-row a{
+    font-size:1rem;color:var(--brass-light);padding-right:22px;margin-right:22px;
+    border-right:1px solid var(--rule-dark);border-bottom:1px solid transparent;transition:border-color .15s;
+  }
+  .contact-row a:last-child{border-right:none;}
+  .contact-row a:hover{border-bottom-color:var(--brass-light);}
+  footer .note{margin-top:26px;color:#9BA6B5;font-size:0.86rem;max-width:60ch;}
+
+  :focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-meta">
+        <span class="item">Kolkata, WB</span>
+        <span class="item">MBA — Operations & Finance</span>
+        <span class="item">Open to opportunities</span>
+      </div>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="name">Your Name Here</h1>
+        <div class="role">Business Analyst — Finance & Business Analytics</div>
+        <p class="lede">I turn scattered spreadsheets and SAP exports into dashboards leadership actually trusts — built on real procurement data, financial reporting, and a habit of asking where the process breaks.</p>
+      </div>
+      <div class="chart-card">
+        <div class="ct">Validated procurement savings by category</div>
+        <div class="bar-row"><span class="bar-label">Solar</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">7%</span></div>
+        <div class="bar-row"><span class="bar-label">Electrical</span><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div><span class="bar-val">6%</span></div>
+        <div class="bar-row"><span class="bar-label">Batteries</span><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div><span class="bar-val">6%</span></div>
+        <div class="bar-row"><span class="bar-label">Road Constr.</span><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div><span class="bar-val">5%</span></div>
+        <div class="bar-row"><span class="bar-label">Plumbing</span><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div><span class="bar-val">5%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="impact">
+  <div class="wrap">
+    <div class="impact-row">
+      <div class="impact-cell"><div class="num">5–7%</div><div class="lbl">cost savings across 60+ suppliers</div></div>
+      <div class="impact-cell"><div class="num">16</div><div class="lbl">page Power BI suite, built solo</div></div>
+      <div class="impact-cell"><div class="num">30+</div><div class="lbl">DAX measures, 10 relational tables</div></div>
+      <div class="impact-cell"><div class="num">15+</div><div class="lbl">procurement KPIs tracked live</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="section-rule"></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-head">
+          <h3>Business Analyst — Finance & Business Analytics</h3>
+          <span class="co">Tata Consultancy Services Ltd.</span>
+        </div>
+        <div class="tl-meta">Nov 2022 – Present · Kolkata, WB</div>
+        <ul class="bullets">
+          <li>Built and maintained financial MIS reports and dashboards, giving leadership real-time visibility into key financial metrics.</li>
+          <li>Automated a manual finance reporting process, cutting turnaround time and reducing errors in recurring deliverables.</li>
+          <li>Partnered with cross-functional finance and business teams to translate business needs into structured analytical outputs.</li>
+          <li>Managed end-to-end Accounts Payable activities — invoices, payments, supplier transactions — with a strong compliance record.</li>
+          <li>Ran Root Cause Analysis on recurring process gaps and drove corrective action through Quality Control support.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-head">
+          <h3>Procurement and Supply Chain Intern</h3>
+          <span class="co">Innovel Energy Services Pvt. Ltd.</span>
+        </div>
+        <div class="tl-meta">Jan 2026 – Mar 2026 · Kolkata, WB</div>
+        <ul class="bullets">
+          <li>Built operational MIS dashboards in Google Sheets and SAP B1 tracking 50+ purchase orders for procurement leadership.</li>
+          <li>Ran vendor benchmarking across 15–20+ quotations, contributing to 3–6% cost optimization on investment budgets.</li>
+          <li>Supported procurement planning across 5+ renewable energy projects, achieving 95%+ on-time material availability.</li>
+          <li>Managed RFPs, vendor selection, and rate negotiation across multiple procurement verticals, including ARC and term-sheet prep.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <h2 class="section-title">Key project</h2>
+    <div class="section-rule"></div>
+    <div class="project-card">
+      <div class="tag">Independent Analytics Project</div>
+      <h3>SCM Analytics — Supply Chain Decision Support System</h3>
+      <div class="flow">
+        <span class="flow-step">Requisition</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Purchase Order</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Goods Receipt</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Invoice</span>
+      </div>
+      <ul class="bullets">
+        <li>Delivered a validated 5–7% procurement cost saving per material vertical through vendor rate benchmarking across 60+ suppliers spanning six categories.</li>
+        <li>Independently designed a 16-page Power BI reporting suite from raw SAP B1 exports: 10 relational tables, a fully connected data model, 30+ DAX measures covering the complete procure-to-pay cycle shown above.</li>
+        <li>Replaced four disconnected manual registers with one live, interconnected view, cutting the time to spot a delayed vendor or price anomaly.</li>
+        <li>Tracked 15+ procurement KPIs — on-time delivery rate, GRN rejection rate, average lead time, and a composite Supplier Performance Score.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="section-rule"></div>
+    <div class="grid-2">
+      <div>
+        <div class="skill-group">
+          <h4>Finance & analytics</h4>
+          <div class="skill-tags"><span>Financial MIS Reporting</span><span>Business Process Modelling</span><span>Data-Driven Decision Support</span><span>KPI Reporting</span></div>
+        </div>
+        <div class="skill-group">
+          <h4>Tools & platforms</h4>
+          <div class="skill-tags"><span>SQL</span><span>Power BI</span><span>Excel & Google Sheets</span><span>SAP B1</span><span>Oracle Business Suite</span><span>Python (Basics)</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-group">
+          <h4>Supply chain & procurement</h4>
+          <div class="skill-tags"><span>Vendor Benchmarking</span><span>Procurement Planning</span><span>RFP/RFQ Management</span><span>Rate Negotiation</span></div>
+        </div>
+        <div class="skill-group">
+          <h4>Stakeholder management</h4>
+          <div class="skill-tags"><span>Cross-Functional Collaboration</span><span>Client Engagement</span><span>Executive-Ready Reporting</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">Education & certifications</h2>
+    <div class="section-rule"></div>
+    <div class="grid-2">
+      <div>
+        <div class="edu-item">
+          <h3>MBA — Operations Management & System Analysis</h3>
+          <div class="school">Finance (Minor) · University of Calcutta</div>
+          <div class="yrs">2024 – 2026</div>
+        </div>
+        <div class="edu-item">
+          <h3>B.Com (Honours) — Accounting and Finance</h3>
+          <div class="school">University of Calcutta</div>
+          <div class="yrs">2017 – 2020</div>
+        </div>
+      </div>
+      <div>
+        <div class="edu-item">
+          <h3>SAP Business Process Modelling and Analysis</h3>
+          <div class="yrs">Process Design · Optimization · SAP Signavio</div>
+        </div>
+        <div class="edu-item">
+          <h3>SAP ABAP Fundamentals and Core Programming</h3>
+          <div class="yrs">Internal Tables · Module Pool Programming · SmartForms</div>
+        </div>
+        <div class="edu-item">
+          <h3>Claude with Amazon Bedrock · Claude on Google Cloud</h3>
+          <div class="yrs">RAG Pipelines · Prompt Engineering · Agent Workflows</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-row">
+      <a href="mailto:you@example.com">you@example.com</a>
+      <a href="tel:+910000000000">+91 00000 00000</a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="note">Recognized by clients for delivery excellence and consistently received appreciation for quality and timely service delivery during tenure at TCS.</p>
+  </div>
+</footer>
+
+</body>
+</html>
